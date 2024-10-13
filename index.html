@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Day Counter</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
+            margin: 0;
+        }
+        .container {
+            perspective: 1000px;
+        }
+        .card {
+            width: 600px;
+            height: 400px;
+            text-align: center;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        h1 {
+            color: #d32f2f;
+            font-family: 'Pacifico', cursive;
+            margin-bottom: 10px;
+        }
+        #counter {
+            font-size: 1.5em;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+        .avatars {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .avatars img {
+            border-radius: 50%;
+            width: 120px; /* Smaller size */
+            height: 140px;
+            margin: 0 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid #fff;
+        }
+        .heart {
+            color: #d32f2f;
+            font-size: 2em;
+            margin: 0 10px;
+        }
+        .quote {
+            font-size: 1em;
+            color: #555;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #999;
+            font-size: 0.8em;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="avatars">
+                <img src="./img/anh.jpg" alt="Your Avatar">
+                <span class="heart">❤️</span>
+                <img src="./img/em.jpg" alt="Partner's Avatar">
+            </div>
+            <h1>Our Days of Love</h1>
+            <p id="counter"></p>
+            <div class="quote">"Love is composed of a single soul inhabiting two bodies." – Aristotle</div>
+            <div class="footer">Created with ❤️ for my Kween</div>
+        </div>
+    </div>
+    <script>
+        const startDate = new Date("2024-04-26");
+        const today = new Date();
+        const diffTime = Math.abs(today - startDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        document.getElementById("counter").innerText = `We've been in love for ${diffDays} days!`;
+    </script>
+</body>
+</html>
